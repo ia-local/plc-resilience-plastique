@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="fr" data-fr-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>Le Projet de Loi | PLC - Résilience Énergie-Plastique</title>
+    <meta name="description" content="Texte fondateur et articles du Projet de Loi Constituant pour la libre exploitation énergétique des déchets plastiques.">
+    
+    <style>
+        :root {
+            --blue-france-sun-113: #000091;
+            --blue-france-975: #f5f5fe;
+            --text-title-grey: #161616;
+            --text-default-grey: #3a3a3a;
+            --border-default-grey: #e3e3fd;
+        }
+        * { box-sizing: border-box; }
+        body { margin: 0; font-family: "Marianne", arial, sans-serif; color: var(--text-default-grey); background-color: #fff; line-height: 1.6; }
+        
+        /* HEADER & NAV DSFR */
+        .fr-header { background-color: #fff; border-bottom: 1px solid var(--border-default-grey); padding: 1rem 2rem; display: flex; align-items: center; justify-content: space-between; }
+        .fr-header__brand { display: flex; align-items: center; gap: 2rem; }
+        .fr-logo { font-weight: 700; text-transform: uppercase; font-size: 0.9rem; color: var(--text-title-grey); }
+        .fr-header__service-title { font-size: 1.25rem; font-weight: 700; color: var(--text-title-grey); margin: 0; }
+        .fr-header__service-tagline { font-size: 0.875rem; margin: 0; }
+        
+        .fr-nav { background-color: var(--blue-france-975); padding: 0 2rem; border-bottom: 2px solid var(--blue-france-sun-113); }
+        .fr-nav__list { list-style-type: none; margin: 0; padding: 0; display: flex; gap: 1.5rem; }
+        .fr-nav__link { display: block; padding: 1rem 0; color: var(--text-title-grey); text-decoration: none; font-weight: 500; transition: color 0.2s; }
+        .fr-nav__link:hover, .fr-nav__link[aria-current="page"] { color: var(--blue-france-sun-113); box-shadow: inset 0 -2px 0 0 var(--blue-france-sun-113); }
+
+        /* MAIN CONTENT */
+        .fr-container { max-width: 1000px; margin: 0 auto; padding: 2rem; }
+        h1, h2, h3 { color: var(--text-title-grey); }
+        h1 { font-size: 2.5rem; margin-bottom: 1.5rem; border-bottom: 2px solid var(--blue-france-sun-113); padding-bottom: 0.5rem; }
+        h2 { font-size: 1.8rem; margin-top: 2.5rem; color: var(--blue-france-sun-113); }
+        
+        /* SPECIFIC COMPONENTS */
+        .fr-quote { border-left: 4px solid var(--blue-france-sun-113); padding-left: 1.5rem; margin: 2rem 0; font-style: italic; font-size: 1.2rem; color: #555; background-color: var(--blue-france-975); padding: 1.5rem; }
+        .fr-article-loi { background: #f9f9f9; border: 1px solid #ddd; padding: 1.5rem; margin-bottom: 1.5rem; border-radius: 4px; }
+        .fr-article-loi h3 { margin-top: 0; font-size: 1.3rem; display: flex; align-items: center; gap: 10px; }
+        .fr-article-loi h3::before { content: "§"; color: var(--blue-france-sun-113); font-size: 1.5rem; }
+        
+        .fr-highlight { font-weight: bold; color: var(--text-title-grey); }
+
+        /* FOOTER */
+        .fr-footer { background-color: #fff; border-top: 2px solid var(--blue-france-sun-113); padding: 2rem; margin-top: 4rem; text-align: center; }
+    </style>
+</head>
+<body>
+
+    <header role="banner" class="fr-header">
+        <div class="fr-header__brand">
+            <div class="fr-logo">République<br>Française</div>
+            <div class="fr-header__service">
+                <p class="fr-header__service-title">PLC - Résilience Énergie-Plastique</p>
+                <p class="fr-header__service-tagline">Transformer nos déchets en souveraineté énergétique locale</p>
+            </div>
+        </div>
+    </header>
+
+    <nav role="navigation" class="fr-nav" aria-label="Menu principal">
+        <ul class="fr-nav__list">
+            <li><a class="fr-nav__link" href="index.html">Accueil</a></li>
+            <li><a class="fr-nav__link" href="la-loi.html" aria-current="page">Le Projet de Loi</a></li>
+            <li><a class="fr-nav__link" href="l-usine.html">Les Plans de l'Usine</a></li>
+            <li><a class="fr-nav__link" href="biochimie.html">Le Procédé Biochimique</a></li>
+            <li><a class="fr-nav__link" href="comptabilite.html">Comptabilité & Quotas</a></li>
+        </ul>
+    </nav>
+
+    <main role="main" id="contenu">
+        <div class="fr-container">
+            
+            <h1>Plaidoyer Démocratique & Projet de Loi</h1>
+            
+            <section aria-labelledby="intro-plaidoyer">
+                <h2 id="intro-plaidoyer">L'énergie issue de la dépollution est un Bien Commun</h2>
+                <p>Aujourd'hui, le déchet plastique est considéré comme une charge financière pour nos communes. Parallèlement, l'approvisionnement en carburant est soumis aux fluctuations géopolitiques et aux monopoles industriels. Il est temps de lier démocratiquement ces deux problématiques.</p>
+                
+                <blockquote class="fr-quote">
+                    "On ne peut pas breveter le nettoyage de la planète. L'énergie qui résulte de notre effort collectif de dépollution doit revenir aux citoyens et à ceux qui l'entreprennent, sans péage intellectuel ni monopole industriel."
+                </blockquote>
+                
+                <p>Ce Projet de Loi Constituant (PLC) a pour but de garantir que toute technologie transformant un passif environnemental (le plastique abandonné) en actif énergétique (bio-éthanol via biomasse) soit maintenue dans le domaine public. C'est la garantie d'une <strong>souveraineté énergétique locale</strong> accessible à tous les entrepreneurs, maires et agriculteurs.</p>
+            </section>
+
+            <section aria-labelledby="textes-loi">
+                <h2 id="textes-loi">Proposition d'Articles Constitutionnels</h2>
+                
+                <article class="fr-article-loi">
+                    <h3>Article 1 : Classification Stratégique des Déchets</h3>
+                    <p>Tout déchet plastique issu du territoire national et ne pouvant faire l'objet d'un recyclage mécanique viable est dorénavant requalifié en <span class="fr-highlight">Ressource Stratégique Territoriale de Catégorie 1</span>. Sa collecte et sa valorisation énergétique priment sur son enfouissement ou son exportation.</p>
+                </article>
+
+                <article class="fr-article-loi">
+                    <h3>Article 2 : Libre Exploitation et Inaliénabilité</h3>
+                    <p>Les procédés biochimiques et thermochimiques (incluant la pyrolyse et la co-fermentation végétale) permettant la transformation de ces déchets en bio-combustibles ou bio-éthanol sont déclarés d'<span class="fr-highlight">Utilité Publique et d'Exploitation Libre</span>. Aucun brevet d'invention ne pourra restreindre le droit d'une régie communale ou d'une entreprise locale à concevoir et opérer une usine de dépollution énergétique reposant sur ces principes naturels.</p>
+                </article>
+
+                <article class="fr-article-loi">
+                    <h3>Article 3 : Défiscalisation de l'Énergie de Dépollution</h3>
+                    <p>Afin d'encourager le nettoyage actif des écosystèmes, le carburant (bio-éthanol ou distillat) produit exclusivement par l'élimination certifiée de plastiques locaux et de biomasse est <span class="fr-highlight">exonéré de la Taxe Intérieure de Consommation sur les Produits Énergétiques (TICPE)</span>, dans la limite des quotas alloués au prorata des tonnages dépollués.</p>
+                </article>
+            </section>
+
+            <section aria-labelledby="action-parlementaire">
+                <h2 id="action-parlementaire">Soutien Parlementaire & Citoyen</h2>
+                <p>Ce texte est mis à la disposition des élus de la République (Sénateurs, Députés, Maires) pour être porté dans l'hémicycle. Il offre un cadre légal sécurisant pour les entrepreneurs audacieux qui souhaitent déployer les <a href="l-usine.html">unités de production modulaires</a> sans risquer l'entrave juridique des grands monopoles pétroliers ou chimiques.</p>
+            </section>
+
+        </div>
+    </main>
+
+    <footer role="contentinfo" class="fr-footer">
+        <div class="fr-container">
+            <p>Projet de Loi Constituant - Démocratie, Écologie & Souveraineté.</p>
+        </div>
+    </footer>
+
+</body>
+</html>

@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="fr" data-fr-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>Comptabilité & Quotas | PLC - Résilience Énergie-Plastique</title>
+    <meta name="description" content="Modèle économique, bilan comptable prévisionnel et compte de résultat de l'usine de valorisation énergétique.">
+    
+    <style>
+        :root {
+            --blue-france-sun-113: #000091;
+            --blue-france-975: #f5f5fe;
+            --text-title-grey: #161616;
+            --text-default-grey: #3a3a3a;
+            --border-default-grey: #e3e3fd;
+            --success-green: #1f8d49;
+            --warning-red: #d64d00;
+        }
+        * { box-sizing: border-box; }
+        body { margin: 0; font-family: "Marianne", arial, sans-serif; color: var(--text-default-grey); background-color: #fff; line-height: 1.6; }
+        
+        /* HEADER & NAV DSFR */
+        .fr-header { background-color: #fff; border-bottom: 1px solid var(--border-default-grey); padding: 1rem 2rem; display: flex; align-items: center; justify-content: space-between; }
+        .fr-header__brand { display: flex; align-items: center; gap: 2rem; }
+        .fr-logo { font-weight: 700; text-transform: uppercase; font-size: 0.9rem; color: var(--text-title-grey); }
+        .fr-header__service-title { font-size: 1.25rem; font-weight: 700; color: var(--text-title-grey); margin: 0; }
+        .fr-header__service-tagline { font-size: 0.875rem; margin: 0; }
+        
+        .fr-nav { background-color: var(--blue-france-975); padding: 0 2rem; border-bottom: 2px solid var(--blue-france-sun-113); }
+        .fr-nav__list { list-style-type: none; margin: 0; padding: 0; display: flex; gap: 1.5rem; }
+        .fr-nav__link { display: block; padding: 1rem 0; color: var(--text-title-grey); text-decoration: none; font-weight: 500; transition: color 0.2s; }
+        .fr-nav__link:hover, .fr-nav__link[aria-current="page"] { color: var(--blue-france-sun-113); box-shadow: inset 0 -2px 0 0 var(--blue-france-sun-113); }
+
+        /* MAIN CONTENT */
+        .fr-container { max-width: 1100px; margin: 0 auto; padding: 2rem; }
+        h1, h2, h3 { color: var(--text-title-grey); }
+        h1 { font-size: 2.5rem; margin-bottom: 1.5rem; border-bottom: 2px solid var(--blue-france-sun-113); padding-bottom: 0.5rem; }
+        h2 { font-size: 1.8rem; margin-top: 2.5rem; color: var(--blue-france-sun-113); }
+        
+        /* TABLES DSFR STYLE */
+        .fr-table { width: 100%; border-collapse: collapse; margin: 1.5rem 0; background: #fff; }
+        .fr-table th, .fr-table td { border: 1px solid #ddd; padding: 1rem; text-align: left; }
+        .fr-table th { background-color: #f6f6f6; font-weight: 700; color: var(--text-title-grey); }
+        .fr-table tfoot td { font-weight: bold; background-color: var(--blue-france-975); }
+        .text-right { text-align: right !important; }
+        .val-positive { color: var(--success-green); font-weight: bold; }
+        .val-negative { color: var(--warning-red); font-weight: bold; }
+
+        /* BILAN SPLIT */
+        .fr-bilan-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; }
+        @media (max-width: 768px) { .fr-bilan-grid { grid-template-columns: 1fr; } }
+        .fr-bilan-col { border: 2px solid var(--border-default-grey); border-radius: 4px; overflow: hidden; }
+        .fr-bilan-header { background: var(--blue-france-sun-113); color: white; padding: 1rem; text-align: center; margin: 0; }
+        .fr-bilan-content { padding: 1.5rem; }
+
+        /* EMPHASIS BOX */
+        .fr-callout { background-color: #f9f9f9; border-left: 4px solid var(--blue-france-sun-113); padding: 1.5rem; margin: 2rem 0; }
+
+        /* FOOTER */
+        .fr-footer { background-color: #fff; border-top: 2px solid var(--blue-france-sun-113); padding: 2rem; margin-top: 4rem; text-align: center; }
+    </style>
+</head>
+<body>
+
+    <header role="banner" class="fr-header">
+        <div class="fr-header__brand">
+            <div class="fr-logo">République<br>Française</div>
+            <div class="fr-header__service">
+                <p class="fr-header__service-title">PLC - Résilience Énergie-Plastique</p>
+                <p class="fr-header__service-tagline">Transformer nos déchets en souveraineté énergétique locale</p>
+            </div>
+        </div>
+    </header>
+
+    <nav role="navigation" class="fr-nav" aria-label="Menu principal">
+        <ul class="fr-nav__list">
+            <li><a class="fr-nav__link" href="index.html">Accueil</a></li>
+            <li><a class="fr-nav__link" href="la-loi.html">Le Projet de Loi</a></li>
+            <li><a class="fr-nav__link" href="l-usine.html">Les Plans de l'Usine</a></li>
+            <li><a class="fr-nav__link" href="biochimie.html">Le Procédé Biochimique</a></li>
+            <li><a class="fr-nav__link" href="comptabilite.html" aria-current="page">Comptabilité & Quotas</a></li>
+        </ul>
+    </nav>
+
+    <main role="main" id="contenu">
+        <div class="fr-container">
+            
+            <h1>Modèle Économique et Comptabilité d'Entreprise</h1>
+            
+            <div class="fr-callout">
+                <p><strong>Le changement de paradigme comptable :</strong> Dans le cadre de ce Projet de Loi Constituant, le déchet plastique n'est plus enregistré comme une <em>Charge</em> (coût d'enlèvement et taxe d'enfouissement - TGAP), mais bascule à l'<em>Actif</em> du bilan en tant que <strong>Stock d'Approvisionnement</strong> (matière première énergétique).</p>
+            </div>
+
+            <section aria-labelledby="bilan-comptable">
+                <h2 id="bilan-comptable">1. Bilan Comptable Prévisionnel d'Ouverture (Investissement & Financement)</h2>
+                <p>Ce bilan modélise l'installation d'une unité modulaire standardisée pour une régie communale ou une PME locale délégataire (Capacité de traitement : 5 tonnes/jour).</p>
+                
+                <div class="fr-bilan-grid">
+                    <div class="fr-bilan-col">
+                        <h3 class="fr-bilan-header">ACTIF (Emplois / Investissements)</h3>
+                        <div class="fr-bilan-content">
+                            <table class="fr-table">
+                                <thead>
+                                    <tr><th>Poste</th><th class="text-right">Valeur (€)</th></tr>
+                                </thead>
+                                <tbody>
+                                    <tr><td><strong>Immobilisations Incorporelles</strong><br><small>Frais d'ingénierie, conformité environnementale</small></td><td class="text-right">45 000</td></tr>
+                                    <tr><td><strong>Immobilisations Corporelles</strong><br><small>Module Pyrolyse & Bioréacteurs (Skids conteneurisés)</small></td><td class="text-right">380 000</td></tr>
+                                    <tr><td><strong>Immobilisations Corporelles</strong><br><small>Cuves de stockage (Biomasse & Éthanol)</small></td><td class="text-right">75 000</td></tr>
+                                    <tr><td><strong>Actif Circulant (Approvisionnements)</strong><br><small>Stocks initiaux : Plastiques triés & Moût végétal</small></td><td class="text-right">15 000</td></tr>
+                                    <tr><td><strong>Disponibilités</strong><br><small>Trésorerie de départ</small></td><td class="text-right">35 000</td></tr>
+                                </tbody>
+                                <tfoot>
+                                    <tr><td>TOTAL ACTIF</td><td class="text-right">550 000 €</td></tr>
+                                </tfoot>
+                            </table>
+                        </div>
+                    </div>
+
+                    <div class="fr-bilan-col">
+                        <h3 class="fr-bilan-header">PASSIF (Ressources / Besoins de Financement)</h3>
+                        <div class="fr-bilan-content">
+                            <table class="fr-table">
+                                <thead>
+                                    <tr><th>Poste</th><th class="text-right">Valeur (€)</th></tr>
+                                </thead>
+                                <tbody>
+                                    <tr><td><strong>Capitaux Propres</strong><br><small>Apport initial (Commune ou Investisseurs locaux)</small></td><td class="text-right">150 000</td></tr>
+                                    <tr><td><strong>Subventions d'Investissement</strong><br><small>Aide Région / ADEME (Dépollution & Économie Circulaire)</small></td><td class="text-right">100 000</td></tr>
+                                    <tr><td><strong>Dettes Financières</strong><br><small>Emprunt bancaire long terme (Green Bonds)</small></td><td class="text-right">280 000</td></tr>
+                                    <tr><td><strong>Dettes Fournisseurs</strong><br><small>Crédits sur l'achat de biomasse initiale</small></td><td class="text-right">20 000</td></tr>
+                                    <tr><td>&nbsp;</td><td class="text-right">&nbsp;</td></tr>
+                                </tbody>
+                                <tfoot>
+                                    <tr><td>TOTAL PASSIF</td><td class="text-right">550 000 €</td></tr>
+                                </tfoot>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section aria-labelledby="compte-resultat">
+                <h2 id="compte-resultat">2. Compte de Résultat Prévisionnel (Année 1)</h2>
+                <p>Le modèle repose sur une double source de "produits" : la production d'un carburant gratuit (économie d'achat) et l'économie réalisée sur les taxes d'enfouissement (TGAP). <em>Note : Grâce à l'Article 3 du PLC, la TICPE est exonérée.</em></p>
+
+                <table class="fr-table">
+                    <thead>
+                        <tr>
+                            <th>CHARGES (Dépenses d'Exploitation)</th>
+                            <th class="text-right">Montant HT (€)</th>
+                            <th>PRODUITS (Revenus & Économies)</th>
+                            <th class="text-right">Montant HT (€)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Achats d'Approvisionnements (Biomasse)</strong><br><small>Paiement aux agriculteurs locaux (résidus)</small></td>
+                            <td class="text-right val-negative">40 000</td>
+                            <td><strong>Production Stockée (Bio-Éthanol)</strong><br><small>Valorisation au prix coûtant de l'essence substituée</small></td>
+                            <td class="text-right val-positive">210 000</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Achats d'Approvisionnements (Plastique)</strong><br><small>Coût nul (fourni par la régie de collecte)</small></td>
+                            <td class="text-right val-negative">0</td>
+                            <td><strong>Économies TGAP & Traitement</strong><br><small>Enfouissement évité (1500 Tonnes * 65€/t)</small></td>
+                            <td class="text-right val-positive">97 500</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Énergie & Fluides</strong><br><small>Électricité (L'usine s'auto-chauffe en majorité)</small></td>
+                            <td class="text-right val-negative">15 000</td>
+                            <td><strong>Vente de Sous-produits</strong><br><small>Char/Noir de carbone pour travaux publics locaux</small></td>
+                            <td class="text-right val-positive">18 000</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Salaires & Charges Sociales</strong><br><small>2 Opérateurs qualifiés + 1 Technicien Maintenance</small></td>
+                            <td class="text-right val-negative">120 000</td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td><strong>Dotations aux Amortissements</strong><br><small>Usine amortie sur 10 ans</small></td>
+                            <td class="text-right val-negative">45 500</td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td><strong>Frais Financiers</strong><br><small>Intérêts de l'emprunt</small></td>
+                            <td class="text-right val-negative">8 500</td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                    </tbody>
+                    <tfoot>
+                        <tr>
+                            <td>TOTAL CHARGES</td>
+                            <td class="text-right val-negative">229 000 €</td>
+                            <td>TOTAL PRODUITS</td>
+                            <td class="text-right val-positive">325 500 €</td>
+                        </tr>
+                        <tr>
+                            <td colspan="3" class="text-right" style="font-size: 1.2rem;"><strong>RÉSULTAT NET (Bénéfice/Économie pour la commune)</strong></td>
+                            <td class="text-right" style="font-size: 1.2rem; background: var(--success-green); color: white;"><strong>+ 96 500 €</strong></td>
+                        </tr>
+                    </tfoot>
+                </table>
+            </section>
+
+            <section aria-labelledby="budget-tresorerie">
+                <h2 id="budget-tresorerie">3. Budget de Trésorerie et Quotas</h2>
+                <p>Le budget de trésorerie de cette infrastructure est particulièrement sain car il opère en circuit court, sans dépendance aux marchés internationaux :</p>
+                <ul>
+                    <li><strong>Encaissements réguliers :</strong> La commune ne décaisse plus pour acheter son carburant. L'économie d'achat reste dans la trésorerie municipale chaque mois.</li>
+                    <li><strong>Stabilité des coûts d'approvisionnement :</strong> Le prix du déchet plastique est nul (voire négatif si on inclut l'économie de TGAP). Le prix de la biomasse végétale est contracté localement avec les syndicats agricoles à prix fixe.</li>
+                    <li><strong>Gestion par Quotas (Blockchain locale) :</strong> Selon le PLC, chaque citoyen ou entreprise qui apporte 1 Tonne de plastique reçoit un <em>quota numérique</em> lui donnant droit à un certain volume de bio-éthanol détaxé à la pompe municipale. Cela crée une économie circulaire parfaite qui s'équilibre dans les flux de trésorerie sans générer d'inflation.</li>
+                </ul>
+            </section>
+
+        </div>
+    </main>
+
+    <footer role="contentinfo" class="fr-footer">
+        <div class="fr-container">
+            <p>Projet de Loi Constituant - Modélisation Économique & Financière de la Résilience Territoriale.</p>
+        </div>
+    </footer>
+
+</body>
+</html>
