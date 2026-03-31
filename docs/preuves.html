@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="fr" data-fr-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>Preuves & Réalité Industrielle | PLC - Résilience Énergie-Plastique</title>
+    <meta name="description" content="Exemples réels et documentés d'entreprises transformant déjà le plastique et la biomasse en carburant.">
+    
+    <style>
+        :root {
+            --blue-france-sun-113: #000091;
+            --blue-france-975: #f5f5fe;
+            --text-title-grey: #161616;
+            --text-default-grey: #3a3a3a;
+            --border-default-grey: #e3e3fd;
+            --green-emeraude: #00a95f;
+            --orange-pyrolyse: #d64d00;
+        }
+        * { box-sizing: border-box; }
+        body { margin: 0; font-family: "Marianne", arial, sans-serif; color: var(--text-default-grey); background-color: #fff; line-height: 1.6; }
+        
+        /* HEADER & NAV DSFR */
+        .fr-header { background-color: #fff; border-bottom: 1px solid var(--border-default-grey); padding: 1rem 2rem; display: flex; align-items: center; justify-content: space-between; }
+        .fr-header__brand { display: flex; align-items: center; gap: 2rem; }
+        .fr-logo { font-weight: 700; text-transform: uppercase; font-size: 0.9rem; color: var(--text-title-grey); }
+        .fr-header__service-title { font-size: 1.25rem; font-weight: 700; color: var(--text-title-grey); margin: 0; }
+        .fr-header__service-tagline { font-size: 0.875rem; margin: 0; }
+        
+        .fr-nav { background-color: var(--blue-france-975); padding: 0 2rem; border-bottom: 2px solid var(--blue-france-sun-113); }
+        .fr-nav__list { list-style-type: none; margin: 0; padding: 0; display: flex; gap: 1.5rem; flex-wrap: wrap; }
+        .fr-nav__link { display: block; padding: 1rem 0; color: var(--text-title-grey); text-decoration: none; font-weight: 500; transition: color 0.2s; }
+        .fr-nav__link:hover, .fr-nav__link[aria-current="page"] { color: var(--blue-france-sun-113); box-shadow: inset 0 -2px 0 0 var(--blue-france-sun-113); }
+
+        /* MAIN CONTENT */
+        .fr-container { max-width: 1100px; margin: 0 auto; padding: 2rem; }
+        h1, h2, h3 { color: var(--text-title-grey); }
+        h1 { font-size: 2.5rem; margin-bottom: 1.5rem; border-bottom: 2px solid var(--blue-france-sun-113); padding-bottom: 0.5rem; }
+        h2 { font-size: 1.8rem; margin-top: 2.5rem; color: var(--blue-france-sun-113); }
+        
+        /* QUOTE */
+        .fr-lavoisier { background-color: #f6f6f6; border-left: 4px solid var(--text-title-grey); padding: 2rem; margin: 2rem 0; text-align: center; border-radius: 4px; font-size: 1.5rem; font-style: italic; color: var(--blue-france-sun-113); }
+        .fr-lavoisier span { display: block; font-size: 1rem; color: #555; margin-top: 1rem; font-style: normal; font-weight: bold; }
+
+        /* GRID VIDEOS/PREUVES */
+        .fr-proof-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin-top: 3rem; }
+        @media (max-width: 768px) { .fr-proof-grid { grid-template-columns: 1fr; } }
+        
+        .fr-proof-card { border: 1px solid #ddd; border-radius: 8px; overflow: hidden; display: flex; flex-direction: column; background: #fff; box-shadow: 0 4px 12px rgba(0,0,0,0.05); }
+        .fr-proof-header { padding: 1.5rem; color: white; }
+        .bg-pyrolyse { background-color: var(--orange-pyrolyse); }
+        .bg-biomasse { background-color: var(--green-emeraude); }
+        .fr-proof-header h3 { color: white; margin: 0; font-size: 1.4rem; }
+        .fr-proof-content { padding: 1.5rem; flex-grow: 1; }
+        
+        .fr-video-container { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; background: #000; }
+        .fr-video-container iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0; }
+
+        /* CONCLUSION CALLOUT */
+        .fr-callout { background-color: var(--blue-france-975); border: 1px solid var(--border-default-grey); padding: 2rem; margin-top: 3rem; text-align: center; border-radius: 8px; }
+
+        /* FOOTER */
+        .fr-footer { background-color: #fff; border-top: 2px solid var(--blue-france-sun-113); padding: 2rem; margin-top: 4rem; text-align: center; }
+    </style>
+</head>
+<body>
+
+    <header role="banner" class="fr-header">
+        <div class="fr-header__brand">
+            <div class="fr-logo">République<br>Française</div>
+            <div class="fr-header__service">
+                <p class="fr-header__service-title">PLC - Résilience Énergie-Plastique</p>
+                <p class="fr-header__service-tagline">Transformer nos déchets en souveraineté énergétique locale</p>
+            </div>
+        </div>
+    </header>
+
+    <nav role="navigation" class="fr-nav" aria-label="Menu principal">
+        <ul class="fr-nav__list">
+            <li><a class="fr-nav__link" href="index.html">Accueil</a></li>
+            <li><a class="fr-nav__link" href="la-loi.html">Le Projet de Loi</a></li>
+            <li><a class="fr-nav__link" href="l-usine.html">Les Plans de l'Usine</a></li>
+            <li><a class="fr-nav__link" href="biochimie.html">Le Procédé Biochimique</a></li>
+            <li><a class="fr-nav__link" href="comptabilite.html">Comptabilité & Quotas</a></li>
+            <li><a class="fr-nav__link" href="preuves.html" aria-current="page">Preuves & Réalité</a></li>
+        </ul>
+    </nav>
+
+    <main role="main" id="contenu">
+        <div class="fr-container">
+            
+            <h1>Ce n'est pas de la science-fiction : La Réalité Industrielle</h1>
+            
+            <div class="fr-lavoisier">
+                "Rien ne se perd, rien ne se crée, tout se transforme."
+                <span>— Antoine Lavoisier, Traité élémentaire de chimie (1789)</span>
+            </div>
+
+            <p style="font-size: 1.2rem; text-align: center; max-width: 800px; margin: 0 auto;">Les principes chimiques décrits dans notre projet ne sont pas des théories expérimentales. Ils sont déjà maîtrisés et documentés par des industriels pionniers. Le plastique retourne à son état d'origine (le pétrole) par la chaleur, et la plante devient de l'alcool par fermentation.</p>
+
+            <div class="fr-proof-grid">
+                
+                <article class="fr-proof-card">
+                    <div class="fr-proof-header bg-pyrolyse">
+                        <h3>1. Du Plastique au Carburant (Pyrolyse)</h3>
+                    </div>
+                    <div class="fr-video-container">
+                        <iframe src="https://www.youtube.com/embed/UrU2_Gf18Wc" title="Vidéo Pyrolyse Plastique" allowfullscreen></iframe>
+                    </div>
+                    <div class="fr-proof-content">
+                        <p><strong>Le procédé prouvé :</strong> Comme le montre ce documentaire, des entrepreneurs comme Michael Murray utilisent déjà des machines capables d'ingérer 20 tonnes de déchets plastiques ménagers non-recyclables par jour.</p>
+                        <ul>
+                            <li>Le plastique est chauffé à 400°C dans une cuve anaérobie.</li>
+                            <li>Il se transforme en gaz (Syngas).</li>
+                            <li>Ce gaz est recondensé dans une colonne pour devenir un liquide brun : du diesel directement utilisable dans les moteurs thermiques.</li>
+                        </ul>
+                        <p><em>"Le plastique à la base c'est du pétrole... on a trouvé le moyen de le remettre dans son état d'origine."</em></p>
+                    </div>
+                </article>
+
+                <article class="fr-proof-card">
+                    <div class="fr-proof-header bg-biomasse">
+                        <h3>2. Des Déchets Agricoles à l'Éthanol</h3>
+                    </div>
+                    <div class="fr-video-container">
+                        <iframe src="https://www.youtube.com/embed/QAR8o8RlRQ0" title="Vidéo Biomasse Agricole" allowfullscreen></iframe>
+                    </div>
+                    <div class="fr-proof-content">
+                        <p><strong>Le procédé prouvé :</strong> Depuis plus de 14 ans (reportage BFMTV 2011), des bioraffineries comme celles situées dans la Marne transforment des résidus agricoles (paille) en biocarburant.</p>
+                        <ul>
+                            <li>La matière végétale est traitée pour en extraire la lignine et la cellulose.</li>
+                            <li>La cellulose est fermentée pour produire de l'éthanol.</li>
+                            <li><strong>Le point fort :</strong> Il n'y a aucune compétition avec l'alimentation humaine puisque ce sont les déchets de culture qui sont valorisés, offrant un revenu supplémentaire à la filière agricole.</li>
+                        </ul>
+                    </div>
+                </article>
+
+            </div>
+
+            <div class="fr-callout">
+                <h2 style="margin-top: 0; color: var(--blue-france-sun-113);">L'Innovation du PLC : Fusionner pour Libérer</h2>
+                <p style="font-size: 1.1rem; margin-bottom: 0;">Ces deux technologies existent de manière silotée et sont souvent protégées par des brevets industriels complexes. <strong>L'innovation majeure de notre Projet de Loi Constituant</strong> est de fusionner ces deux approches dans une unité hybride et autonome (la chaleur du plastique distille le végétal), et d'offrir les plans en <em>Open-Hardware</em> à nos communes. Ce qui est techniquement possible pour des multinationales doit devenir un droit inaliénable pour le nettoyage de nos territoires.</p>
+            </div>
+
+        </div>
+    </main>
+
+    <footer role="contentinfo" class="fr-footer">
+        <div class="fr-container">
+            <p>Projet de Loi Constituant - Documentation Open Source & Libre d'exploitation.</p>
+        </div>
+    </footer>
+
+</body>
+</html>
