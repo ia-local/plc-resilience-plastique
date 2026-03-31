@@ -14,7 +14,6 @@
             --text-default-grey: #3a3a3a;
             --border-default-grey: #e3e3fd;
             --green-emeraude: #00a95f; /* Couleur pour le végétal */
-            --orange-pyrolyse: #d64d00;
         }
         * { box-sizing: border-box; }
         body { margin: 0; font-family: "Marianne", arial, sans-serif; color: var(--text-default-grey); background-color: #fff; line-height: 1.6; }
@@ -45,40 +44,9 @@
         .fr-card { background: #f9f9f9; border: 1px solid #ddd; border-top: 4px solid var(--blue-france-sun-113); padding: 1.5rem; border-radius: 4px; box-shadow: 0 2px 4px rgba(0,0,0,0.05); }
         .fr-card.vegetal { border-top-color: var(--green-emeraude); }
         
-        .fr-alert { background-color: #e8edff; border-left: 4px solid var(--blue-france-sun-113); padding: 1rem 1.5rem; margin: 2rem 0; }
+        .fr-equation { background-color: #222; color: #0f0; font-family: 'Courier New', Courier, monospace; padding: 1rem; border-radius: 4px; text-align: center; margin: 1.5rem 0; font-size: 1.1rem; overflow-x: auto; }
         
-        /* IMAGE PLACEHOLDER */
-        .schematic-img { max-width: 100%; height: auto; border: 1px solid #ddd; border-radius: 4px; margin-top: 1rem; display: block; }
-
-        /* EQUATION ANIMÉE CSS */
-        .fr-equation { background-color: #1a1a1a; color: #fff; padding: 1.5rem; border-radius: 8px; text-align: center; margin: 2rem 0; font-size: 1.2rem; display: flex; align-items: center; justify-content: center; flex-wrap: wrap; gap: 10px; font-weight: bold; }
-        .eq-part { padding: 0.5rem 1rem; border-radius: 4px; }
-        .eq-plastique { background-color: #444; border-bottom: 3px solid var(--orange-pyrolyse); }
-        .eq-vegetal { background-color: #224422; border-bottom: 3px solid var(--green-emeraude); }
-        .eq-result { background-color: #112244; border-bottom: 3px solid var(--blue-france-sun-113); animation: pulse 2s infinite; }
-        .eq-arrow { color: var(--blue-france-sun-113); font-size: 1.5rem; animation: moveRight 1.5s infinite; }
-
-        @keyframes pulse {
-            0% { box-shadow: 0 0 0 0 rgba(0, 0, 145, 0.7); }
-            70% { box-shadow: 0 0 0 10px rgba(0, 0, 145, 0); }
-            100% { box-shadow: 0 0 0 0 rgba(0, 0, 145, 0); }
-        }
-        @keyframes moveRight {
-            0% { transform: translateX(0); }
-            50% { transform: translateX(5px); }
-            100% { transform: translateX(0); }
-        }
-
-        /* CALCULATEUR ACV */
-        .calculator-box { background-color: #f6f6f6; border: 2px solid var(--green-emeraude); padding: 2rem; border-radius: 8px; margin-top: 2rem; }
-        .calculator-box h3 { color: var(--text-title-grey); margin-top: 0; }
-        .form-group { margin-bottom: 1.5rem; }
-        .form-group label { display: block; font-weight: bold; margin-bottom: 0.5rem; }
-        .form-group input { width: 100%; max-width: 300px; padding: 0.8rem; border: 1px solid #ccc; border-radius: 4px; font-size: 1.1rem; }
-        .btn-calc { background-color: var(--green-emeraude); color: white; border: none; padding: 0.8rem 1.5rem; font-size: 1.1rem; cursor: pointer; border-radius: 4px; font-weight: bold; }
-        .btn-calc:hover { background-color: #008a4c; }
-        .result-box { display: none; background-color: #e6f6ec; border-left: 4px solid var(--green-emeraude); padding: 1.5rem; margin-top: 1.5rem; }
-        .result-number { font-size: 2rem; font-weight: bold; color: var(--green-emeraude); }
+        .fr-alert { background-color: #e8edff; border-left: 4px solid var(--blue-france-sun-113); padding: 1rem 1.5rem; margin: 2rem 0; }
 
         /* FOOTER */
         .fr-footer { background-color: #fff; border-top: 2px solid var(--blue-france-sun-113); padding: 2rem; margin-top: 4rem; text-align: center; }
@@ -120,58 +88,35 @@
             <section aria-labelledby="etapes-procede">
                 <h2 id="etapes-procede">Les Deux Piliers de la Transformation</h2>
                 
-                <div style="text-align: center; margin: 2rem 0;">
-                    <img src="bio.jpeg" alt="Schéma de la transformation biochimique du plastique et de la biomasse en bioéthanol" class="schematic-img">
-                </div>
-
                 <div class="fr-process-grid">
                     <article class="fr-card">
-                        <h3 style="color: var(--orange-pyrolyse);">1. Craquage Thermique (Pyrolyse)</h3>
+                        <h3>1. Craquage Thermique (Pyrolyse du Plastique)</h3>
                         <p>Les déchets plastiques (Polyéthylène, Polypropylène) sont chauffés dans un réacteur fermé, sans oxygène, entre 400°C et 600°C.</p>
                         <p>Cette action casse les longues chaînes de polymères (liquéfaction) pour produire un gaz riche en énergie, appelé <strong>Syngas</strong> (Gaz de Synthèse), composé de monoxyde de carbone (CO) et de dihydrogène (H2).</p>
+                        
+
+[Image of plastic pyrolysis process diagram]
+
                     </article>
 
                     <article class="fr-card vegetal">
-                        <h3>2. Fermentation Végétale</h3>
+                        <h3>2. Fermentation Végétale (Biomasse)</h3>
                         <p>En parallèle, des matières végétales locales et peu coûteuses (déchets agricoles, avoine, résidus de pommes) subissent une macération et une fermentation enzymatique.</p>
-                        <p>Les levures transforment les sucres naturels en alcool, préparant le milieu idéal pour accueillir les gaz issus de la pyrolyse.</p>
+                        <p>Les levures transforment les sucres naturels en alcool (éthanol : C2H5OH), libérant du CO2 capté pour optimiser la réaction.</p>
+                        
                     </article>
                 </div>
             </section>
 
             <section aria-labelledby="hybridation">
                 <h2 id="hybridation">L'Hybridation : La Synthèse Finale</h2>
-                <p>C'est ici que réside la force de l'ingénierie publique libre. Au lieu d'utiliser des catalyseurs chimiques industriels onéreux et brevetés, nous utilisons la <strong>fermentation des gaz (Syngas Fermentation)</strong> couplée au moût végétal.</p>
+                <p>C'est ici que réside la force de l'ingénierie publique libre. Au lieu d'utiliser des catalyseurs chimiques industriels onéreux et brevetés pour transformer le Syngas en carburant, nous utilisons la <strong>fermentation des gaz (Syngas Fermentation)</strong> couplée au moût végétal.</p>
                 
-                <div class="fr-equation" aria-label="Équation de transformation">
-                    <div class="eq-part eq-plastique">Syngas (CO + H2)</div>
-                    <div style="font-weight: normal; font-size: 1.5rem;">+</div>
-                    <div class="eq-part eq-vegetal">Bactéries & Moût Végétal</div>
-                    <div class="eq-arrow">➔</div>
-                    <div class="eq-part eq-result">Bio-Éthanol (C2H5OH)</div>
+                <div class="fr-equation">
+                    [Syngas (CO + H2) issu du Plastique] + [Bactéries / Moût Végétal] ➔ Bio-Éthanol (C2H5OH) + Eau
                 </div>
 
-                <p>Des micro-organismes acétogènes (présents naturellement) se nourrissent du gaz de synthèse (carbone et hydrogène du plastique) pour produire de l'éthanol. Le mélange final est ensuite distillé de manière classique (alambic) pour obtenir un carburant pur, prêt à alimenter des moteurs adaptés (FlexFuel).</p>
-            </section>
-
-            <section aria-labelledby="calculateur-acv">
-                <h2 id="calculateur-acv">Calculateur d'Impact : Bilan Carbone (ACV)</h2>
-                <p>Pour l'ADEME ou les certifications environnementales, il est crucial de démontrer le gain carbone de l'opération par rapport au scénario du "laisser-faire" (enfouissement du plastique + extraction de pétrole pour le carburant de la commune).</p>
-                
-                <div class="calculator-box">
-                    <h3>Simulateur de CO2 évité</h3>
-                    <div class="form-group">
-                        <label for="tonnageInput">Tonnage de déchets plastiques à traiter (en Tonnes) :</label>
-                        <input type="number" id="tonnageInput" placeholder="Ex: 1500" min="1">
-                    </div>
-                    <button class="btn-calc" onclick="calculerImpact()">Calculer l'impact environnemental</button>
-
-                    <div id="resultBox" class="result-box">
-                        <p style="margin-top:0;">En détournant ces déchets de l'enfouissement pour substituer un carburant fossile, vous évitez l'émission de :</p>
-                        <div class="result-number"><span id="co2Result">0</span> Tonnes d'équivalent CO2</div>
-                        <p style="font-size: 0.9rem; color: #555; margin-bottom: 0;"><em>*Méthodologie simplifiée ACV : Ce calcul intègre l'évitement de la dégradation anaérobie en décharge (méthane) et l'évitement de l'extraction/combustion d'essence fossile substituable (Ratio utilisé : 1T de plastique traité = ~2.2 T CO2e évitées au global).</em></p>
-                    </div>
-                </div>
+                <p>Des micro-organismes acétogènes (présents naturellement) se nourrissent du gaz de synthèse (carbone et hydrogène du plastique) pour produire de l'éthanol. Le mélange final est ensuite distillé de manière classique (alambic industriel) pour obtenir un carburant pur, prêt à alimenter des moteurs adaptés (FlexFuel).</p>
             </section>
 
             <section aria-labelledby="open-science">
@@ -188,27 +133,5 @@
         </div>
     </footer>
 
-    <script>
-        function calculerImpact() {
-            const tonnage = document.getElementById('tonnageInput').value;
-            const resultBox = document.getElementById('resultBox');
-            const resultDisplay = document.getElementById('co2Result');
-            
-            if (tonnage && tonnage > 0) {
-                // Ratio scientifique simplifié : 1 tonne de plastique traitée en énergie 
-                // permet d'éviter l'enfouissement ET la combustion d'énergie fossile équivalente.
-                // Estimation moyenne ADEME/ACV = ~2.2 T de CO2e évité par Tonne traitée via ce procédé hybride.
-                const facteurCO2 = 2.2; 
-                const tonnesEvitees = (tonnage * facteurCO2).toFixed(1);
-                
-                // Animation simple de comptage (UX)
-                resultBox.style.display = 'block';
-                resultDisplay.innerText = tonnesEvitees;
-                resultBox.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
-            } else {
-                alert("Veuillez entrer un tonnage valide.");
-            }
-        }
-    </script>
 </body>
 </html>

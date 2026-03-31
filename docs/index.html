@@ -12,12 +12,14 @@
             --blue-france-975: #f5f5fe;
             --text-title-grey: #161616;
             --text-default-grey: #3a3a3a;
+            --border-default-grey: #e3e3fd;
+            --warning-color: #d64d00;
         }
         * { box-sizing: border-box; }
-        body { margin: 0; font-family: "Marianne", arial, sans-serif; color: var(--text-default-grey); background-color: #fff; line-height: 1.5; }
+        body { margin: 0; font-family: "Marianne", arial, sans-serif; color: var(--text-default-grey); background-color: #fff; line-height: 1.6; }
         
         /* HEADER DSFR */
-        .fr-header { background-color: #fff; border-bottom: 1px solid #e3e3fd; padding: 1rem 2rem; display: flex; align-items: center; justify-content: space-between; }
+        .fr-header { background-color: #fff; border-bottom: 1px solid var(--border-default-grey); padding: 1rem 2rem; display: flex; align-items: center; justify-content: space-between; }
         .fr-header__brand { display: flex; align-items: center; gap: 2rem; }
         .fr-logo { font-weight: 700; text-transform: uppercase; font-size: 0.9rem; color: var(--text-title-grey); }
         .fr-header__service-title { font-size: 1.25rem; font-weight: 700; color: var(--text-title-grey); margin: 0; }
@@ -25,17 +27,36 @@
         
         /* NAVIGATION W3C */
         .fr-nav { background-color: var(--blue-france-975); padding: 0 2rem; border-bottom: 2px solid var(--blue-france-sun-113); }
-        .fr-nav__list { list-style-type: none; margin: 0; padding: 0; display: flex; gap: 1.5rem; }
-        .fr-nav__link { display: block; padding: 1rem 0; color: var(--text-title-grey); text-decoration: none; font-weight: 500; }
+        .fr-nav__list { list-style-type: none; margin: 0; padding: 0; display: flex; gap: 1.5rem; flex-wrap: wrap; }
+        .fr-nav__link { display: block; padding: 1rem 0; color: var(--text-title-grey); text-decoration: none; font-weight: 500; transition: color 0.2s; }
         .fr-nav__link:hover, .fr-nav__link[aria-current="page"] { color: var(--blue-france-sun-113); box-shadow: inset 0 -2px 0 0 var(--blue-france-sun-113); }
 
         /* MAIN CONTENT */
         .fr-container { max-width: 1200px; margin: 0 auto; padding: 2rem; }
         h1, h2, h3 { color: var(--text-title-grey); }
-        h1 { font-size: 2.5rem; margin-bottom: 1.5rem; }
+        h1 { font-size: 2.5rem; margin-bottom: 1.5rem; color: var(--blue-france-sun-113); }
         
+        /* ALERT BOX (Urgence) */
+        .fr-alert { background-color: #fff4f4; border-left: 4px solid var(--warning-color); padding: 1.5rem; margin: 2rem 0; box-shadow: 0 2px 6px rgba(0,0,0,0.05); }
+        .fr-alert h2 { color: var(--warning-color); margin-top: 0; font-size: 1.5rem; }
+        .fr-alert p { margin-bottom: 0; font-size: 1.1rem; }
+
+        /* MANIFESTO */
+        .fr-manifesto { background-color: var(--blue-france-975); padding: 2rem; border-radius: 8px; margin: 3rem 0; text-align: center; border: 1px solid var(--border-default-grey); }
+        .fr-manifesto h2 { margin-top: 0; }
+        .fr-manifesto blockquote { font-size: 1.4rem; font-style: italic; color: var(--blue-france-sun-113); margin: 1.5rem 0; }
+
+        /* CARDS GRID (Navigation) */
+        .fr-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem; margin-top: 3rem; }
+        .fr-card { background: #fff; border: 1px solid #ddd; padding: 1.5rem; border-radius: 4px; display: flex; flex-direction: column; transition: transform 0.2s, box-shadow 0.2s; }
+        .fr-card:hover { transform: translateY(-5px); box-shadow: 0 8px 16px rgba(0,0,0,0.1); border-color: var(--blue-france-sun-113); }
+        .fr-card h3 { margin-top: 0; border-bottom: 2px solid var(--blue-france-sun-113); padding-bottom: 0.5rem; display: inline-block; }
+        .fr-card p { flex-grow: 1; }
+        .fr-btn { display: inline-block; background-color: var(--blue-france-sun-113); color: #fff; text-decoration: none; padding: 0.8rem 1.5rem; text-align: center; font-weight: bold; border-radius: 2px; transition: background-color 0.2s; }
+        .fr-btn:hover { background-color: #1212ff; }
+
         /* FOOTER */
-        .fr-footer { background-color: #fff; border-top: 2px solid var(--blue-france-sun-113); padding: 2rem; margin-top: 4rem; }
+        .fr-footer { background-color: #fff; border-top: 2px solid var(--blue-france-sun-113); padding: 2rem; margin-top: 4rem; text-align: center; }
     </style>
 </head>
 <body>
@@ -64,17 +85,61 @@
 
     <main role="main" id="contenu">
         <div class="fr-container">
-            <h1>La fin du déchet, le début de l'énergie libre</h1>
+            
+            <div style="text-align: center; margin-bottom: 3rem;">
+                <h1>La fin du déchet, le début de l'énergie libre.</h1>
+                <p style="font-size: 1.2rem; max-width: 800px; margin: 0 auto;">Ce portail présente une solution démocratique, technique et légale pour dépolluer nos territoires tout en produisant une ressource énergétique vitale : un bio-éthanol issu de la co-transformation de plastiques non-recyclables et de biomasse locale.</p>
+            </div>
+
+            <section class="fr-alert">
+                <h2>L'Urgence : Réduire l'enfouissement des plastiques</h2>
+                <p>Aujourd'hui, une grande partie de nos déchets plastiques complexes finit enfouie, polluant les sols et coûtant des millions d'euros aux collectivités territoriales via la <strong>Taxe Générale sur les Activités Polluantes (TGAP)</strong>. L'objectif européen est clair : réduire la mise en décharge à moins de 10% d'ici 2035. Ce projet apporte une réponse industrielle immédiate pour transformer ce passif environnemental en carburant de transition.</p>
+            </section>
+
+            <section class="fr-manifesto">
+                <h2>Le Manifeste "Open Source" (No-Patent)</h2>
+                <p>La dépollution de notre planète et la résilience énergétique de nos communes ne doivent pas être soumises aux lois du marché et aux monopoles.</p>
+                <blockquote>"On ne brevète pas le nettoyage de la nature."</blockquote>
+                <p>L'intégralité des procédés présentés sur ce portail (pyrolyse, fermentation hybride, plans de l'usine) repose sur des principes physiques et chimiques libres de droits. Ce Projet de Loi Constituant garantit que l'énergie issue de l'effort collectif de tri et de recyclage reste un <strong>Bien Commun inaliénable</strong>.</p>
+            </section>
+
             <section>
-                <h2>Pourquoi ce Projet de Loi Constituant ?</h2>
-                <p>Ce portail présente une solution démocratique, technique et légale pour dépolluer nos territoires tout en produisant une ressource énergétique vitale et non-brevetée : un bio-éthanol issu de la co-transformation de plastiques non-recyclables et de biomasse.</p>
-                </section>
+                <h2 style="text-align: center; margin-bottom: 2rem;">Découvrez les 4 piliers du projet</h2>
+                <div class="fr-grid">
+                    
+                    <article class="fr-card">
+                        <h3>⚖️ Le Cadre Légal</h3>
+                        <p>Découvrez la proposition de Projet de Loi Constituant (PLC). Un arsenal juridique pour sanctuariser la dépollution énergétique et exonérer de taxes (TICPE) le carburant produit localement.</p>
+                        <a href="la-loi.html" class="fr-btn">Lire le projet de Loi</a>
+                    </article>
+
+                    <article class="fr-card">
+                        <h3>🏭 L'Usine Modulaire</h3>
+                        <p>Consultez l'approche "Low-Tech". Une infrastructure conteneurisée, modulaire, déployable dans n'importe quelle communauté de communes sans génie civil lourd.</p>
+                        <a href="l-usine.html" class="fr-btn">Voir les plans</a>
+                    </article>
+
+                    <article class="fr-card">
+                        <h3>⚗️ La Biochimie</h3>
+                        <p>Comprenez le procédé scientifique : comment la chaleur du craquage thermique du plastique alimente la fermentation et la distillation des résidus végétaux.</p>
+                        <a href="biochimie.html" class="fr-btn">Étudier le procédé</a>
+                    </article>
+
+                    <article class="fr-card">
+                        <h3>📊 La Rentabilité</h3>
+                        <p>Analysez le business plan et le bilan prévisionnel. Transformez le coût de gestion des déchets en une source de revenus et d'économies pour votre territoire.</p>
+                        <a href="comptabilite.html" class="fr-btn">Évaluer la rentabilité</a>
+                    </article>
+
+                </div>
+            </section>
+
         </div>
     </main>
 
     <footer role="contentinfo" class="fr-footer">
         <div class="fr-container">
-            <p>Projet de Loi Constituant - Documentation Open Source & Libre d'exploitation.</p>
+            <p>Projet de Loi Constituant - Documentation Open Source & Libre d'exploitation pour la Résilience Énergie-Plastique.</p>
         </div>
     </footer>
 

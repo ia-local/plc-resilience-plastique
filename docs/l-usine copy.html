@@ -51,15 +51,8 @@
         .mod-output .fr-module-icon { background-color: var(--blue-france-sun-113); }
 
         /* FLUX VISUALIZATION */
-        .fr-flux-box { background-color: var(--blue-france-975); border: 1px solid var(--border-default-grey); padding: 1.5rem; text-align: center; margin: 2rem 0; border-radius: 8px; }
-        .fr-flux-box h3 { margin-top: 0; margin-bottom: 1rem; }
-        .fr-flux-box p.description { max-width: 700px; margin: 0 auto 1.5rem auto; font-style: italic; color: #555; }
-        .factory-plan-img { max-width: 100%; height: auto; border: 1px solid #ccc; box-shadow: 0 4px 12px rgba(0,0,0,0.1); background: white; }
-
-        /* CADRE OPEN HARDWARE */
-        .fr-callout { background-color: #f6f6f6; border-left: 4px solid var(--orange-terre); padding: 1.5rem; margin: 2rem 0; }
-        .fr-callout h3 { color: var(--orange-terre); margin-top: 0; }
-        .fr-callout-text { margin-bottom: 0; font-size: 1.1rem; }
+        .fr-flux-box { background-color: var(--blue-france-975); border: 2px dashed var(--blue-france-sun-113); padding: 2rem; text-align: center; margin: 2rem 0; border-radius: 8px; }
+        .fr-flux-box p { font-weight: bold; margin: 0; color: var(--blue-france-sun-113); }
 
         /* FOOTER */
         .fr-footer { background-color: #fff; border-top: 2px solid var(--blue-france-sun-113); padding: 2rem; margin-top: 4rem; text-align: center; }
@@ -102,18 +95,9 @@
                 <p>L'unité de production a été pensée selon les principes de l'<strong>Open Hardware</strong> et du <strong>Low-Tech industriel</strong>. Afin d'être déployable par n'importe quelle communauté de communes, l'usine est conçue au format conteneurisé (Skid). Elle ne nécessite pas de génie civil lourd et repose sur une boucle thermodynamique autonome : la chaleur générée par la destruction du plastique sert à distiller l'alcool végétal.</p>
             </section>
 
-            <div class="fr-callout">
-                <h3>Philosophie de Conception "Open Hardware"</h3>
-                <p class="fr-callout-text">Les plans complets de l'infrastructure sont fournis sous licence libre. Le porteur de projet est invité à utiliser des logiciels Open Source comme <strong>FreeCAD</strong> ou <strong>Blender</strong> pour modéliser les Skids (conteneurs maritimes aménagés) adaptés à son terrain. L'objectif est de prouver que l'outil est réalisable localement et peu coûteux.</p>
-            </div>
-
             <div class="fr-flux-box">
-                <h3>Schéma Industriel Global et Nomenclature</h3>
-                <p class="description">Cette esquisse de plan 2D présente l'agencement logique des bâtiments conteneurisés et la nomenclature complète des flux raccord avec le procédé biochimique (Entrées, Réacteurs, Distillation, Sorties/Défluents).</p>
+                <p>Schéma Industriel Global</p>
                 
-                <img src="plan-construction.jpeg" alt="Schéma technique 2D de l'usine modulaire montrant les flux de production et la nomenclature en français." class="factory-plan-img">
-                
-                <p style="font-size: 0.9rem; color: #666; margin-top: 1rem;">Note : Dans le plan de développement Web, cette image sera remplacée par un SVG Interactif ou une visionneuse 3D <em>Three.js</em> permettant de faire tourner l'unité.</p>
             </div>
 
             <section aria-labelledby="flux-production">
@@ -168,7 +152,7 @@
 
     <footer role="contentinfo" class="fr-footer">
         <div class="fr-container">
-            <p>Projet de Loi Constituant - Documentation Open Source & Libre d'exploitation pour la Résilience Énergie-Plastique.</p>
+            <p>Projet de Loi Constituant - Documentation Open Source & Libre d'exploitation.</p>
         </div>
     </footer>
 

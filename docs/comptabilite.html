@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
     <title>Comptabilité & Quotas | PLC - Résilience Énergie-Plastique</title>
-    <meta name="description" content="Modèle économique, bilan comptable prévisionnel et compte de résultat de l'usine de valorisation énergétique.">
+    <meta name="description" content="Modèle économique interactif, bilan comptable prévisionnel et compte de résultat de l'usine de valorisation énergétique.">
     
     <style>
         :root {
@@ -37,8 +37,15 @@
         h1 { font-size: 2.5rem; margin-bottom: 1.5rem; border-bottom: 2px solid var(--blue-france-sun-113); padding-bottom: 0.5rem; }
         h2 { font-size: 1.8rem; margin-top: 2.5rem; color: var(--blue-france-sun-113); }
         
+        /* SIMULATOR CONTROLS */
+        .fr-simulator-panel { background: #f4f4f4; border: 1px solid #ddd; border-left: 4px solid var(--blue-france-sun-113); padding: 1.5rem; border-radius: 4px; margin-bottom: 2rem; display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.5rem; }
+        .fr-control-group { display: flex; flex-direction: column; }
+        .fr-control-group label { font-weight: bold; margin-bottom: 0.5rem; color: var(--text-title-grey); }
+        .fr-control-group input[type="range"] { width: 100%; cursor: pointer; }
+        .fr-control-value { font-size: 1.2rem; color: var(--blue-france-sun-113); font-weight: bold; margin-top: 0.2rem; }
+
         /* TABLES DSFR STYLE */
-        .fr-table { width: 100%; border-collapse: collapse; margin: 1.5rem 0; background: #fff; }
+        .fr-table { width: 100%; border-collapse: collapse; margin: 1.5rem 0; background: #fff; box-shadow: 0 2px 8px rgba(0,0,0,0.05); }
         .fr-table th, .fr-table td { border: 1px solid #ddd; padding: 1rem; text-align: left; }
         .fr-table th { background-color: #f6f6f6; font-weight: 700; color: var(--text-title-grey); }
         .fr-table tfoot td { font-weight: bold; background-color: var(--blue-france-975); }
@@ -92,23 +99,20 @@
             </div>
 
             <section aria-labelledby="bilan-comptable">
-                <h2 id="bilan-comptable">1. Bilan Comptable Prévisionnel d'Ouverture (Investissement & Financement)</h2>
-                <p>Ce bilan modélise l'installation d'une unité modulaire standardisée pour une régie communale ou une PME locale délégataire (Capacité de traitement : 5 tonnes/jour).</p>
+                <h2 id="bilan-comptable">1. Bilan Comptable Prévisionnel (Investissement Initial)</h2>
+                <p>Ce bilan modélise l'installation d'une unité modulaire standardisée (Skid).</p>
                 
                 <div class="fr-bilan-grid">
                     <div class="fr-bilan-col">
                         <h3 class="fr-bilan-header">ACTIF (Emplois / Investissements)</h3>
                         <div class="fr-bilan-content">
-                            <table class="fr-table">
-                                <thead>
-                                    <tr><th>Poste</th><th class="text-right">Valeur (€)</th></tr>
-                                </thead>
+                            <table class="fr-table" style="margin:0; box-shadow:none;">
                                 <tbody>
-                                    <tr><td><strong>Immobilisations Incorporelles</strong><br><small>Frais d'ingénierie, conformité environnementale</small></td><td class="text-right">45 000</td></tr>
-                                    <tr><td><strong>Immobilisations Corporelles</strong><br><small>Module Pyrolyse & Bioréacteurs (Skids conteneurisés)</small></td><td class="text-right">380 000</td></tr>
-                                    <tr><td><strong>Immobilisations Corporelles</strong><br><small>Cuves de stockage (Biomasse & Éthanol)</small></td><td class="text-right">75 000</td></tr>
-                                    <tr><td><strong>Actif Circulant (Approvisionnements)</strong><br><small>Stocks initiaux : Plastiques triés & Moût végétal</small></td><td class="text-right">15 000</td></tr>
-                                    <tr><td><strong>Disponibilités</strong><br><small>Trésorerie de départ</small></td><td class="text-right">35 000</td></tr>
+                                    <tr><td><strong>Immos. Incorporelles</strong><br><small>Ingénierie & Conformité</small></td><td class="text-right">45 000 €</td></tr>
+                                    <tr><td><strong>Immos. Corporelles</strong><br><small>Usine Pyrolyse & Bioréacteurs</small></td><td class="text-right">380 000 €</td></tr>
+                                    <tr><td><strong>Immos. Corporelles</strong><br><small>Cuves (Biomasse & Éthanol)</small></td><td class="text-right">75 000 €</td></tr>
+                                    <tr><td><strong>Actif Circulant</strong><br><small>Stocks initiaux</small></td><td class="text-right">15 000 €</td></tr>
+                                    <tr><td><strong>Disponibilités</strong><br><small>Trésorerie</small></td><td class="text-right">35 000 €</td></tr>
                                 </tbody>
                                 <tfoot>
                                     <tr><td>TOTAL ACTIF</td><td class="text-right">550 000 €</td></tr>
@@ -118,17 +122,14 @@
                     </div>
 
                     <div class="fr-bilan-col">
-                        <h3 class="fr-bilan-header">PASSIF (Ressources / Besoins de Financement)</h3>
+                        <h3 class="fr-bilan-header">PASSIF (Ressources / Financement)</h3>
                         <div class="fr-bilan-content">
-                            <table class="fr-table">
-                                <thead>
-                                    <tr><th>Poste</th><th class="text-right">Valeur (€)</th></tr>
-                                </thead>
+                            <table class="fr-table" style="margin:0; box-shadow:none;">
                                 <tbody>
-                                    <tr><td><strong>Capitaux Propres</strong><br><small>Apport initial (Commune ou Investisseurs locaux)</small></td><td class="text-right">150 000</td></tr>
-                                    <tr><td><strong>Subventions d'Investissement</strong><br><small>Aide Région / ADEME (Dépollution & Économie Circulaire)</small></td><td class="text-right">100 000</td></tr>
-                                    <tr><td><strong>Dettes Financières</strong><br><small>Emprunt bancaire long terme (Green Bonds)</small></td><td class="text-right">280 000</td></tr>
-                                    <tr><td><strong>Dettes Fournisseurs</strong><br><small>Crédits sur l'achat de biomasse initiale</small></td><td class="text-right">20 000</td></tr>
+                                    <tr><td><strong>Capitaux Propres</strong><br><small>Apport initial local</small></td><td class="text-right">150 000 €</td></tr>
+                                    <tr><td><strong>Subventions</strong><br><small>Aides Économie Circulaire</small></td><td class="text-right">100 000 €</td></tr>
+                                    <tr><td><strong>Dettes Financières</strong><br><small>Emprunt bancaire (Green Bonds)</small></td><td class="text-right">280 000 €</td></tr>
+                                    <tr><td><strong>Dettes Fournisseurs</strong><br><small>Crédits achats</small></td><td class="text-right">20 000 €</td></tr>
                                     <tr><td>&nbsp;</td><td class="text-right">&nbsp;</td></tr>
                                 </tbody>
                                 <tfoot>
@@ -141,52 +142,64 @@
             </section>
 
             <section aria-labelledby="compte-resultat">
-                <h2 id="compte-resultat">2. Compte de Résultat Prévisionnel (Année 1)</h2>
-                <p>Le modèle repose sur une double source de "produits" : la production d'un carburant gratuit (économie d'achat) et l'économie réalisée sur les taxes d'enfouissement (TGAP). <em>Note : Grâce à l'Article 3 du PLC, la TICPE est exonérée.</em></p>
+                <h2 id="compte-resultat">2. Compte de Résultat Dynamique (Année 1)</h2>
+                <p>Simulez la rentabilité de l'unité de production en fonction des paramètres de votre territoire. Ajustez les curseurs ci-dessous :</p>
 
-                <table class="fr-table">
+                <div class="fr-simulator-panel">
+                    <div class="fr-control-group">
+                        <label for="rangeTonnage">Plastique traité par an (Tonnes)</label>
+                        <input type="range" id="rangeTonnage" min="500" max="3000" step="100" value="1500" oninput="updateSim()">
+                        <div class="fr-control-value"><span id="valTonnage">1500</span> T / an</div>
+                    </div>
+                    <div class="fr-control-group">
+                        <label for="rangePrixEssence">Prix de l'essence substituée (€/Litre)</label>
+                        <input type="range" id="rangePrixEssence" min="1.00" max="2.50" step="0.05" value="1.80" oninput="updateSim()">
+                        <div class="fr-control-value"><span id="valPrixEssence">1.80</span> € / L</div>
+                    </div>
+                    <div class="fr-control-group">
+                        <label for="rangeTGAP">Taxe d'enfouissement évitée (TGAP - €/Tonne)</label>
+                        <input type="range" id="rangeTGAP" min="40" max="150" step="5" value="65" oninput="updateSim()">
+                        <div class="fr-control-value"><span id="valTGAP">65</span> € / T</div>
+                    </div>
+                </div>
+
+                <table class="fr-table" id="tableResultat">
                     <thead>
                         <tr>
-                            <th>CHARGES (Dépenses d'Exploitation)</th>
-                            <th class="text-right">Montant HT (€)</th>
-                            <th>PRODUITS (Revenus & Économies)</th>
-                            <th class="text-right">Montant HT (€)</th>
+                            <th style="width: 35%;">CHARGES (Dépenses)</th>
+                            <th class="text-right" style="width: 15%;">Montant HT</th>
+                            <th style="width: 35%;">PRODUITS (Revenus & Économies)</th>
+                            <th class="text-right" style="width: 15%;">Montant HT</th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr>
-                            <td><strong>Achats d'Approvisionnements (Biomasse)</strong><br><small>Paiement aux agriculteurs locaux (résidus)</small></td>
-                            <td class="text-right val-negative">40 000</td>
-                            <td><strong>Production Stockée (Bio-Éthanol)</strong><br><small>Valorisation au prix coûtant de l'essence substituée</small></td>
-                            <td class="text-right val-positive">210 000</td>
+                            <td><strong>Achats Biomasse</strong><br><small>Proportionnel au plastique</small></td>
+                            <td class="text-right val-negative"><span id="calcBiomasse">40 000</span> €</td>
+                            <td><strong>Bio-Éthanol Produit</strong><br><small>Valeur équivalente à la pompe (Tonnage * Rendement * Prix)</small></td>
+                            <td class="text-right val-positive"><span id="calcEthanol">270 000</span> €</td>
                         </tr>
                         <tr>
-                            <td><strong>Achats d'Approvisionnements (Plastique)</strong><br><small>Coût nul (fourni par la régie de collecte)</small></td>
-                            <td class="text-right val-negative">0</td>
-                            <td><strong>Économies TGAP & Traitement</strong><br><small>Enfouissement évité (1500 Tonnes * 65€/t)</small></td>
-                            <td class="text-right val-positive">97 500</td>
+                            <td><strong>Achats Plastique</strong></td>
+                            <td class="text-right val-negative">0 €</td>
+                            <td><strong>Économies TGAP</strong><br><small>Enfouissement évité</small></td>
+                            <td class="text-right val-positive"><span id="calcEconTGAP">97 500</span> €</td>
                         </tr>
                         <tr>
-                            <td><strong>Énergie & Fluides</strong><br><small>Électricité (L'usine s'auto-chauffe en majorité)</small></td>
-                            <td class="text-right val-negative">15 000</td>
-                            <td><strong>Vente de Sous-produits</strong><br><small>Char/Noir de carbone pour travaux publics locaux</small></td>
-                            <td class="text-right val-positive">18 000</td>
+                            <td><strong>Électricité & Maintenance</strong></td>
+                            <td class="text-right val-negative"><span id="calcEnergie">25 000</span> €</td>
+                            <td><strong>Vente Sous-produits</strong><br><small>Char / Noir de carbone</small></td>
+                            <td class="text-right val-positive"><span id="calcChar">18 000</span> €</td>
                         </tr>
                         <tr>
-                            <td><strong>Salaires & Charges Sociales</strong><br><small>2 Opérateurs qualifiés + 1 Technicien Maintenance</small></td>
-                            <td class="text-right val-negative">120 000</td>
+                            <td><strong>Salaires & Charges</strong><br><small>Masse salariale fixe</small></td>
+                            <td class="text-right val-negative">120 000 €</td>
                             <td></td>
                             <td></td>
                         </tr>
                         <tr>
-                            <td><strong>Dotations aux Amortissements</strong><br><small>Usine amortie sur 10 ans</small></td>
-                            <td class="text-right val-negative">45 500</td>
-                            <td></td>
-                            <td></td>
-                        </tr>
-                        <tr>
-                            <td><strong>Frais Financiers</strong><br><small>Intérêts de l'emprunt</small></td>
-                            <td class="text-right val-negative">8 500</td>
+                            <td><strong>Amortissements & Intérêts</strong></td>
+                            <td class="text-right val-negative">54 000 €</td>
                             <td></td>
                             <td></td>
                         </tr>
@@ -194,25 +207,25 @@
                     <tfoot>
                         <tr>
                             <td>TOTAL CHARGES</td>
-                            <td class="text-right val-negative">229 000 €</td>
+                            <td class="text-right val-negative"><span id="calcTotalCharges">239 000</span> €</td>
                             <td>TOTAL PRODUITS</td>
-                            <td class="text-right val-positive">325 500 €</td>
+                            <td class="text-right val-positive"><span id="calcTotalProduits">385 500</span> €</td>
                         </tr>
                         <tr>
-                            <td colspan="3" class="text-right" style="font-size: 1.2rem;"><strong>RÉSULTAT NET (Bénéfice/Économie pour la commune)</strong></td>
-                            <td class="text-right" style="font-size: 1.2rem; background: var(--success-green); color: white;"><strong>+ 96 500 €</strong></td>
+                            <td colspan="3" class="text-right" style="font-size: 1.2rem;"><strong>RÉSULTAT NET ANNUEL</strong></td>
+                            <td class="text-right" style="font-size: 1.2rem; background: var(--success-green); color: white;"><strong><span id="calcResultatNet">+ 146 500</span> €</strong></td>
                         </tr>
                     </tfoot>
                 </table>
             </section>
 
             <section aria-labelledby="budget-tresorerie">
-                <h2 id="budget-tresorerie">3. Budget de Trésorerie et Quotas</h2>
-                <p>Le budget de trésorerie de cette infrastructure est particulièrement sain car il opère en circuit court, sans dépendance aux marchés internationaux :</p>
+                <h2 id="budget-tresorerie">3. Le Système de Quotas (Économie Circulaire)</h2>
+                <p>Pour lisser la trésorerie et impliquer la population, la Mairie peut instaurer un "Compte Énergie Citoyen" :</p>
                 <ul>
-                    <li><strong>Encaissements réguliers :</strong> La commune ne décaisse plus pour acheter son carburant. L'économie d'achat reste dans la trésorerie municipale chaque mois.</li>
-                    <li><strong>Stabilité des coûts d'approvisionnement :</strong> Le prix du déchet plastique est nul (voire négatif si on inclut l'économie de TGAP). Le prix de la biomasse végétale est contracté localement avec les syndicats agricoles à prix fixe.</li>
-                    <li><strong>Gestion par Quotas (Blockchain locale) :</strong> Selon le PLC, chaque citoyen ou entreprise qui apporte 1 Tonne de plastique reçoit un <em>quota numérique</em> lui donnant droit à un certain volume de bio-éthanol détaxé à la pompe municipale. Cela crée une économie circulaire parfaite qui s'équilibre dans les flux de trésorerie sans générer d'inflation.</li>
+                    <li><strong>Principe :</strong> 10 kg de plastique trié et apporté en déchetterie = 1 Quota Énergie.</li>
+                    <li><strong>Récompense :</strong> 1 Quota donne droit à l'équivalent de 5 Litres de bio-éthanol gratuit ou à une réduction sur la taxe foncière.</li>
+                    <li><strong>Bilan :</strong> L'approvisionnement de l'usine est garanti par la population, créant une monnaie locale adossée à la dépollution physique réelle.</li>
                 </ul>
             </section>
 
@@ -225,5 +238,64 @@
         </div>
     </footer>
 
+    <script>
+        // Valeurs fixes
+        const salaires = 120000;
+        const amortissements = 54000;
+        const rendementEthanolLitreParTonne = 100; // 1 Tonne = 100L équivalent essence (hypothèse conservatrice pour simulateur)
+        
+        function updateSim() {
+            // Récupération des inputs
+            let tonnage = parseInt(document.getElementById('rangeTonnage').value);
+            let prixEssence = parseFloat(document.getElementById('rangePrixEssence').value);
+            let tgap = parseInt(document.getElementById('rangeTGAP').value);
+
+            // Mise à jour des labels
+            document.getElementById('valTonnage').innerText = tonnage;
+            document.getElementById('valPrixEssence').innerText = prixEssence.toFixed(2);
+            document.getElementById('valTGAP').innerText = tgap;
+
+            // Calculs Charges (Dynamiques selon tonnage)
+            let coutBiomasse = (tonnage * 26); // Ex: 26€ de biomasse par tonne de plastique
+            let coutEnergie = 10000 + (tonnage * 10); // Fixe + Variable
+            let totalCharges = coutBiomasse + coutEnergie + salaires + amortissements;
+
+            // Calculs Produits
+            let valeurEthanol = (tonnage * rendementEthanolLitreParTonne) * prixEssence;
+            let economieTGAP = tonnage * tgap;
+            let venteChar = tonnage * 12; // 12€ de sous-produit par tonne
+            let totalProduits = valeurEthanol + economieTGAP + venteChar;
+
+            // Résultat Net
+            let resultatNet = totalProduits - totalCharges;
+
+            // Formatage monétaire pour l'affichage
+            const formatter = new Intl.NumberFormat('fr-FR');
+
+            document.getElementById('calcBiomasse').innerText = formatter.format(coutBiomasse);
+            document.getElementById('calcEnergie').innerText = formatter.format(coutEnergie);
+            document.getElementById('calcTotalCharges').innerText = formatter.format(totalCharges);
+
+            document.getElementById('calcEthanol').innerText = formatter.format(valeurEthanol);
+            document.getElementById('calcEconTGAP').innerText = formatter.format(economieTGAP);
+            document.getElementById('calcChar').innerText = formatter.format(venteChar);
+            document.getElementById('calcTotalProduits').innerText = formatter.format(totalProduits);
+
+            // Affichage du Résultat Net avec changement de couleur si perte
+            let resElement = document.getElementById('calcResultatNet');
+            let resContainer = resElement.parentElement;
+            
+            if(resultatNet >= 0) {
+                resElement.innerText = "+ " + formatter.format(resultatNet);
+                resContainer.style.background = "var(--success-green)";
+            } else {
+                resElement.innerText = formatter.format(resultatNet);
+                resContainer.style.background = "var(--warning-red)";
+            }
+        }
+
+        // Initialisation au chargement
+        window.onload = updateSim;
+    </script>
 </body>
 </html>
