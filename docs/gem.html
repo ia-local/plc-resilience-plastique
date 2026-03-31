@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="fr" data-fr-scheme="system">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://unpkg.com/@gouvfr/dsfr@1.10.0/dist/dsfr/dsfr.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/@gouvfr/dsfr@1.10.0/dist/utility/utility.min.css">
+    <title>Lab Civic-Tech - RUP & RIC</title>
+    <style>
+        :root {
+            /* Couleurs officielles DSFR pour les graphiques */
+            --dsfr-blue: #000091;
+            --dsfr-red: #e1000f;
+            --dsfr-green: #009640;
+        }
+
+        .fr-content-container { display: flex; min-height: 100vh; }
+        .fr-sidemenu { width: 300px; border-right: 1px solid var(--border-default-grey); flex-shrink: 0; }
+        main { flex-grow: 1; padding: 2rem; background-color: var(--background-alt-grey); }
+        
+        .dashboard-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .chart-container {
+            background: var(--background-default-grey);
+            padding: 1.5rem;
+            border: 1px solid var(--border-default-grey);
+            height: 300px;
+        }
+
+        @media print {
+            .fr-header, .fr-sidemenu, .fr-breadcrumb, .no-print { display: none !important; }
+            main { background: #fff !important; padding: 0 !important; }
+            .chart-container { border: none; }
+        }
+    </style>
+</head>
+<body>
+    <header role="banner" class="fr-header">
+        <div class="fr-header__body">
+            <div class="fr-container">
+                <div class="fr-header__body-row">
+                    <div class="fr-header__brand">
+                        <div class="fr-header__logo"><p class="fr-logo">République<br>Française</p></div>
+                        <div class="fr-header__service">
+                            <a href="/" title="Accueil">
+                                <p class="fr-header__service-title">Civic-Tech Lab : rup.gouv.fr</p>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div class="fr-content-container">
+        <nav class="fr-sidemenu fr-sidemenu--sticky" aria-labelledby="fr-sidemenu-title">
+            <div class="fr-sidemenu__inner">
+                <div class="fr-collapse" id="fr-sidemenu-wrapper">
+                    <div class="fr-sidemenu__title" id="fr-sidemenu-title">Modules Démocratiques</div>
+                    <ul class="fr-sidemenu__list">
+                        <li class="fr-sidemenu__item fr-sidemenu__item--active">
+                            <a class="fr-sidemenu__link" href="#" aria-current="page">Vue d'ensemble RIC/RUP</a>
+                        </li>
+                        <li class="fr-sidemenu__item">
+                            <button class="fr-sidemenu__btn" aria-controls="menu-ric" aria-expanded="false">Gestion du RIC</button>
+                            <div class="fr-collapse" id="menu-ric">
+                                <ul class="fr-sidemenu__list">
+                                    <li class="fr-sidemenu__item"><a class="fr-sidemenu__link" href="#">Pétitions actives</a></li>
+                                    <li class="fr-sidemenu__item"><a class="fr-sidemenu__link" href="#">Seuils de validation</a></li>
+                                </ul>
+                            </div>
+                        </li>
+                        <li class="fr-sidemenu__item">
+                            <button class="fr-sidemenu__btn" aria-controls="menu-rup" aria-expanded="false">Simulateur RUP</button>
+                            <div class="fr-collapse" id="menu-rup">
+                                <ul class="fr-sidemenu__list">
+                                    <li class="fr-sidemenu__item"><a class="fr-sidemenu__link" href="#">Modèles de redistribution</a></li>
+                                    <li class="fr-sidemenu__item"><a class="fr-sidemenu__link" href="#">Impact budgétaire</a></li>
+                                </ul>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+        <main id="content" role="main">
+            <div class="fr-container">
+                <div class="fr-grid-row fr-grid-row--middle fr-mb-4w">
+                    <div class="fr-col">
+                        <h1 class="fr-h2">Pilotage : État de la Démocratie Directe</h1>
+                    </div>
+                    <div class="fr-col-auto no-print">
+                        <button class="fr-btn fr-btn--secondary fr-icon-printer-line" onclick="window.print()">Exporter le rapport</button>
+                    </div>
+                </div>
+
+                <div class="dashboard-grid">
+                    <div class="fr-card fr-card--sm fr-card--grey">
+                        <div class="fr-card__body">
+                            <div class="fr-card__content">
+                                <h3 class="fr-card__title">RIC : Pétitions au seuil</h3>
+                                <p class="fr-card__desc fr-h1 fr-mt-2w">12</p>
+                                <p class="fr-badge fr-badge--info fr-badge--sm">700k signatures requises</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="fr-card fr-card--sm fr-card--grey">
+                        <div class="fr-card__body">
+                            <div class="fr-card__content">
+                                <h3 class="fr-card__title">RUP : Coût estimé</h3>
+                                <p class="fr-card__desc fr-h1 fr-mt-2w">450 Md€</p>
+                                <p class="fr-badge fr-badge--success fr-badge--sm">Financement bouclé</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="dashboard-grid">
+                    <div class="chart-container">
+                        <h4 class="fr-text--md fr-mb-2w">Participation citoyenne (RIC)</h4>
+                        <canvas id="ricChart"></canvas>
+                    </div>
+                    <div class="chart-container">
+                        <h4 class="fr-text--md fr-mb-2w">Distribution du RUP par décile</h4>
+                        <canvas id="rupChart"></canvas>
+                    </div>
+                </div>
+
+                <section class="fr-mt-4w no-print">
+                    <h3 class="fr-h4">Zone de Test Composants (Backlog développeur)</h3>
+                    <div class="fr-accordion-group">
+                        <section class="fr-accordion">
+                            <h3 class="fr-accordion__title">
+                                <button class="fr-accordion__btn" aria-expanded="false" aria-controls="accordion-1">Vérifier l'accessibilité des Modales (RIC)</button>
+                            </h3>
+                            <div class="fr-collapse" id="accordion-1">
+                                <p>Tâche : Intégrer une modale de confirmation de vote sécurisé avec validation ARIA.</p>
+                                <button class="fr-btn fr-btn--secondary" data-fr-opened="false" aria-controls="fr-modal-1">Ouvrir test modale</button>
+                            </div>
+                        </section>
+                    </div>
+                </section>
+            </div>
+        </main>
+    </div>
+
+    <dialog aria-labelledby="fr-modal-title-modal-1" id="fr-modal-1" class="fr-modal" role="dialog">
+        <div class="fr-container fr-container--fluid fr-container-md">
+            <div class="fr-grid-row fr-grid-row--center">
+                <div class="fr-col-12 fr-col-md-8 fr-col-lg-6">
+                    <div class="fr-modal__body">
+                        <div class="fr-modal__header"><button class="fr-link--close fr-link" aria-controls="fr-modal-1">Fermer</button></div>
+                        <div class="fr-modal__content">
+                            <h1 id="fr-modal-title-modal-1" class="fr-modal__title">Confirmation de Signature (RIC)</h1>
+                            <p>Voulez-vous valider votre signature pour la pétition #8821 ?</p>
+                        </div>
+                        <div class="fr-modal__footer">
+                            <ul class="fr-btns-group fr-btns-group--right fr-btns-group--inline-reverse fr-btns-group--inline-lg">
+                                <li><button class="fr-btn">Valider</button></li>
+                                <li><button class="fr-btn fr-btn--secondary" aria-controls="fr-modal-1">Annuler</button></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </dialog>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script type="module" src="https://unpkg.com/@gouvfr/dsfr@1.10.0/dist/dsfr/dsfr.module.min.js"></script>
+    
+    <script>
+        // Configuration Chart.js avec couleurs DSFR
+        const commonOptions = { responsive: true, maintainAspectRatio: false };
+
+        // Graphique RIC
+        new Chart(document.getElementById('ricChart'), {
+            type: 'line',
+            data: {
+                labels: ['Jan', 'Fév', 'Mar', 'Avr', 'Mai'],
+                datasets: [{
+                    label: 'Signatures (milliers)',
+                    data: [120, 190, 300, 500, 710],
+                    borderColor: '#000091',
+                    backgroundColor: 'rgba(0, 0, 145, 0.1)',
+                    fill: true
+                }]
+            },
+            options: commonOptions
+        });
+
+        // Graphique RUP
+        new Chart(document.getElementById('rupChart'), {
+            type: 'bar',
+            data: {
+                labels: ['D1', 'D3', 'D5', 'D7', 'D10'],
+                datasets: [{
+                    label: 'Allocation (€)',
+                    data: [1200, 1000, 800, 400, 0],
+                    backgroundColor: '#009640'
+                }]
+            },
+            options: commonOptions
+        });
+    </script>
+</body>
+</html>
